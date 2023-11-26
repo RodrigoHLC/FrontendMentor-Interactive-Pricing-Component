@@ -1,0 +1,348 @@
+:root{
+font-family:Manrope, sans-serif;
+font-size:15px;
+}
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+html {
+    width:100vw;
+    /* max-width:2560px; */
+    height:100vh;
+    /* min-height:700px; */
+    background-image: url(./images/bg-pattern.svg);
+    background-repeat: no-repeat;
+    background-color: hsl(230, 100%, 99%);
+    overflow-x: hidden;
+    /* border:2px solid purple; */
+}
+
+body, main {
+    width:100%;
+    height:100%;
+    margin: 0;
+    padding:0;
+}
+main {
+    padding: 10% 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    /* border:1px solid lime; */
+}
+
+.content {
+    /* border:1px solid red; */
+    width:80%;
+    min-width:300px;
+    max-width:550px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    gap:1rem;
+    /* align-items:stretch; */
+}
+/* ---- HEADER GOES HERE ---- */
+/* ---- HEADER GOES HERE ---- */
+.header {
+    background-image: url(./images/pattern-circles.svg);
+    background-repeat:no-repeat;
+    background-position:center;
+    min-height: 145px;;
+    /* border:1px solid orange; */
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:1rem;
+}
+.header > * {
+    margin:0;
+    text-align:center;
+}
+.title {
+    font-size:28px;
+    color:hsl(227, 35%, 25%);
+}
+.tagline {
+    font-size:15px;
+}
+.gray {
+    color: hsl(225, 20%, 60%);
+}
+/* ---- CARD GOES HERE ---- */
+/* ---- CARD GOES HERE ---- */
+
+.card {
+    background-color:hsl(0, 0%, 100%);
+    border-radius:10px;
+    box-shadow: 0 10px 10px 7px rgba(139, 143, 158, 0.066);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2rem;
+    padding:10% 10% 0 10%;
+    min-width:420px;
+}
+/* --- RATES AND RANGE ---- */
+/* --- RATES AND RANGE ---- */
+
+.rate {
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    gap:0.1rem;
+    width:100%;
+    min-width:350px;
+}
+.pageviews {
+    text-transform:uppercase;
+    font-weight:800;
+    letter-spacing:0.1em;
+}
+.rateRight{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    /* gap:1rem; */
+}
+.rateRight *{
+    margin:0;
+}
+.dollars {
+    font-size:40px;
+    font-weight:800;
+    color:hsl(227, 35%, 25%);
+    margin-right:0;
+}
+.period {
+    margin:0;
+}
+/* --- S L I D E R --- */
+/* --- S L I D E R --- */
+
+.range{
+    display:block;
+    width:100%;
+    -webkit-appearance: none;
+    background-image:linear-gradient(90deg, hsl(174, 77%, 80%) 50%, hsl(224, 65%, 95%)50%);
+    border:none;
+    border-radius:10px;
+    margin:2rem 0;
+
+}
+.range:hover {
+    cursor:pointer;
+    
+}
+.range::-webkit-slider-runnable-track {
+    /* background-color:hsl(224, 65%, 95%); */
+    height:8px;
+}
+
+.range::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background:hsl(174, 86%, 45%);
+    width:36px;
+    aspect-ratio: 1/1;;
+    border-radius:50%;
+    transform:translateY(calc(-50% + 4px));
+    background-image: url(./images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 16px 16px  0 hsl(174, 77%, 80%); 
+}
+.range::-webkit-slider-thumb:hover{
+    background-color:hsl(174, 97%, 45%)
+}
+.range::-webkit-slider-thumb:active{
+    background-color:hsl(174, 76%, 35%);
+    cursor:grabbing;
+}
+/* ---- BILLING OPTIONS ---- */
+/* ---- BILLING OPTIONS ---- */
+
+.billing {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    gap:1rem;
+    font-size:12px;
+    text-align:center;
+}
+#plan {
+    display:none;
+}
+.toggle{
+    height:22px;
+    min-width:46px;
+    max-width:46px;
+    position:relative;
+}
+
+.toggle label{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:20px;
+    left:0;
+    background-color:hsl(223, 50%, 87%);
+    transition: 0.6s
+}
+.toggle label:hover{
+    cursor:pointer;
+    background-color:hsl(0, 0%, 77%);
+    transition:0;
+}
+#plan + label::before{
+    content:"";
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:18px;
+    height:18px;
+    background-color:white;
+    border-radius:20px;
+    transition: 0.6s;
+}
+#plan:checked + label{
+    background-color: hsl(174, 86%, 45%);
+    transition: 0.3s
+}
+
+#plan:checked + label::before{
+    transform:translateX(24px);
+    top:2px;
+    transition: 0.3s;
+}
+.monthly, .yearly:not(span) {transition:0.5s}
+.bold {
+    color:hsl(229, 24%, 47%);
+    transition:0.5s
+}
+
+.yearly span {
+    background-color:hsl(14, 92%, 95%);
+    color:hsl(15, 100%, 70%);
+    border-radius:30px;
+    font-size:10px;
+    font-weight:800;
+    padding:0.2em 0.6em;
+    margin-left:0.5rem;
+    text-wrap: nowrap;
+}
+/* ------ F O O T E R ------ */
+/* ------ F O O T E R ------ */
+.footer{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    gap:2rem;
+    /* border:1px solid hsl(224, 65%, 95%); */
+    border-top:1px solid hsl(224, 65%, 95%);
+    padding:2rem 0;
+    width:100%;
+}
+.features {
+    font-size:12px;
+    display:flex;
+    flex-direction:column;
+    gap:1em;
+}
+.check {
+    margin-right: 1em;
+}
+.feature {
+    text-wrap: nowrap;
+}
+.feature p{
+    margin:0;
+    display:inline-block;
+}
+.submit {
+    border:none;
+    border-radius:200px;
+    font-family: Manrope, sans-serif;
+    color:hsl(226, 100%, 87%);
+    background-color:hsl(227, 35%, 25%);
+    height:44px;
+    width:50%;
+    max-width:190px;
+}
+.submit:hover {
+    cursor:pointer;
+    color:white;
+}
+
+/* ----- M O B I L E    S C R E E N S ----- */
+/* ----- M O B I L E    S C R E E N S ----- */
+
+@media (max-width:430px) {
+
+    html {
+        width:100vw;
+        /* max-width:2560px; */
+        
+        height:100vh;
+        /* min-height:fit-content; */
+        height:fit-content;
+        /* min-height:700px; */
+        background-image: url(./images/bg-pattern.svg);
+        background-repeat: no-repeat;
+        background-color: hsl(230, 100%, 99%);
+        /* overflow-x: hidden; */
+    }
+    main {
+        padding: 10% 0;
+        height:fit-content;
+        height:100%;
+    }
+    .content {
+        height:fit-content;
+    }
+    .card{
+        min-width:unset;
+    }
+    .rate {
+        justify-content:center;
+        min-width:unset;
+    }
+    .range{
+        order:0;
+    }
+    .rateRight {
+        order:1;
+    }
+
+    .footer{
+        flex-direction:column;
+        align-items:center;
+    }
+    .features {
+        text-align:center;
+    }
+    .submit {
+        width:190px;
+    }
+}
+
+/* ### Primary
+- Soft Cyan (Full Slider Bar): hsl(174, 77%, 80%)
+- Strong Cyan (Slider Backround): hsl(174, 86%, 45%)
+- Pale Blue (CTA Text): hsl(226, 100%, 87%)
+
+- White (Pricing Component Background): hsl (0, 0%, 100%)
+    - Very Pale Blue (Main Background): hsl(230, 100%, 99%)
+- Light Grayish Blue (Empty Slider Bar): hsl(224, 65%, 95%)
+- Light Grayish Blue (Toggle Background): hsl(223, 50%, 87%)
+- Grayish Blue (Text): hsl(225, 20%, 60%)
+- Dark Desaturated Blue (Text & CTA Background): hsl(227, 35%, 25%)
+
+- Font size (Introductory Paragraph): 15px
+- Family: [Manrope](https://fonts.google.com/specimen/Manrope)
+- Weights: 600, 800 */
